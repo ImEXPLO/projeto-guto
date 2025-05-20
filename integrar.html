@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integração</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Fonte (Google) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- </ -->
+    <!-- Icones (Google) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- </ -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">trending_up</span> OrganiZATION
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados        
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>INTEGRAÇÃO</h2>
+            </div>
+
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
