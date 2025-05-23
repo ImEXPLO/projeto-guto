@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Fonte (Google) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- </ -->
+    <!-- Icones (Google) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- </ -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">trending_up</span> OrganiZATION
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados        
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>PERFORMANCE</h2>
+            </div>
+
+<!--Código da Interface do Performance-->
+<div class="performance-container">
+  <h2>Quadro de Perfomance</h2>
+
+  <div class="top-metrics">
+    <div class="card green">
+      <h4>Receita Mensal</h4>
+      <p>R$ 150.000</p>
+    </div>
+    <div class="card blue">
+      <h4>Crescimento</h4>
+      <p>+15,8%</p>
+    </div>
+    <div class="card purple">
+      <h4>Tarefas Concluídas</h4>
+      <p>180</p>
+    </div>
+    <div class="card orange">
+      <h4>Satisfação do Cliente</h4>
+      <p>80</p>
+    </div>
+    <button class="btn-add">+ Nova Meta</button>
+  </div>
+
+  <div class="charts">
+    <div class="chart-box">
+  <h4>Desempenho de Projetos</h4>
+  <canvas id="lineChart"></canvas>
+</div>
+
+<div class="chart-box">
+  <h4>Trabalho por Equipe</h4>
+  <canvas id="pieChart"></canvas>
+</div>
+
+<div class="chart-box">
+  <h4>Desempenho por Área</h4>
+  <canvas id="barChart"></canvas>
+</div>
+
+<div class="chart-box">
+  <h4>Eficiência Operacional</h4>
+  <canvas id="gaugeChart"></canvas>
+</div>
+
+  </div>
+</div>
+
+
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+  // Gráfico de Linha
+  new Chart(document.getElementById("lineChart"), {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
+      datasets: [{
+        label: 'Projetos Finalizados',
+        data: [4, 7, 5, 9, 6],
+        borderColor: '#007bff',
+        fill: false
+      }]
+    }
+  });
+
+  // Gráfico de Pizza
+  new Chart(document.getElementById("pieChart"), {
+    type: 'pie',
+    data: {
+      labels: ['Equipe A', 'Equipe B', 'Equipe C'],
+      datasets: [{
+        data: [12, 19, 9],
+        backgroundColor: ['#28a745', '#fd7e14', '#6f42c1']
+      }]
+    }
+  });
+
+  // Gráfico de Barras
+  new Chart(document.getElementById("barChart"), {
+    type: 'bar',
+    data: {
+      labels: ['Financeiro', 'RH', 'TI', 'Marketing'],
+      datasets: [{
+        label: 'Tarefas Concluídas',
+        data: [40, 25, 60, 32],
+        backgroundColor: '#17a2b8'
+      }]
+    }
+  });
+
+  // "Velocímetro" Simples com gráfico de Doughnut
+  new Chart(document.getElementById("gaugeChart"), {
+    type: 'doughnut',
+    data: {
+      labels: ['Atingido', 'Restante'],
+      datasets: [{
+        data: [80, 20],
+        backgroundColor: ['#ffc107', '#e9ecef'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      circumference: 180,
+      rotation: -90,
+      cutout: '70%',
+    }
+  });
+</script>
+</body>
+
+</html>
