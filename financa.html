@@ -20,6 +20,12 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+ <!--Formulário para adição de Finanças-->
+
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
     <div class="grid-container">
         <header class="header">
             <div class="menu-icon" onclick="openSidebar()">
@@ -82,6 +88,104 @@
                 <h2>FINANÇAS</h2>
             </div>
 
+<<<<<<< HEAD
+
+<div class="formulario-lancamento">
+  <h3>Adicionar Transação</h3>
+  <form id="formTransacao">
+    <div class="campo">
+      <label for="data">Data</label>
+      <input type="date" id="data" required>
+    </div>
+    <div class="campo">
+      <label for="descricao">Descrição</label>
+      <input type="text" id="descricao" placeholder="Ex: Venda de produto" required>
+    </div>
+    <div class="campo">
+      <label for="valor">Valor (R$)</label>
+      <input type="number" id="valor" required>
+    </div>
+    <div class="campo">
+      <label for="categoria">Categoria</label>
+      <select id="categoria">
+        <option value="Receita">Receita</option>
+        <option value="Despesa">Despesa</option>
+      </select>
+    </div>
+    <button type="submit">Adicionar</button>
+  </form>
+</div>
+
+<!-- Cards -->
+    <div class="cards">
+      <div class="card receita">
+        <h3>Receitas</h3>
+        <p>R$ 12.000</p>
+      </div>
+      <div class="card despesa">
+        <h3>Despesas</h3>
+        <p>R$ 7.500</p>
+      </div>
+      <div class="card">
+        <h3>Lucro</h3>
+        <p>R$ 4.500</p>
+      </div>
+      <div class="card">
+        <h3>Saldo Atual</h3>
+        <p>R$ 18.200</p>
+      </div>
+    </div>
+
+    <!-- Gráfico (simulado) -->
+    <div class="chart">
+      <h3>Resumo Mensal</h3>
+      <canvas id="graficoFinanceiro" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Tabela -->
+    <div class="transactions">
+      <h3>Transações</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10/09/2023</td>
+            <td>Venda de produto</td>
+            <td class="receita">Receita</td>
+            <td class="receita">R$ 2.500</td>
+          </tr>
+          <tr>
+            <td>09/09/2023</td>
+            <td>Serviço contratado</td>
+            <td class="despesa">Despesa</td>
+            <td class="despesa">- R$ 1.000</td>
+          </tr>
+          <tr>
+            <td>05/09/2023</td>
+            <td>Compra de insumos</td>
+            <td class="despesa">Despesa</td>
+            <td class="despesa">- R$ 300</td>
+          </tr>
+          <tr>
+            <td>01/09/2023</td>
+            <td>Venda de produto</td>
+            <td class="receita">Receita</td>
+            <td class="receita">R$ 3.200</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
             <div class="main-cards">
                 <div class="card">
                     <div class="card-inner">
@@ -92,6 +196,52 @@
         </main>
     </div>
     <script src="js/scripts.js"></script>
+<<<<<<< HEAD
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficoFinanceiro').getContext('2d');
+  const grafico = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
+      datasets: [
+        {
+          label: 'Receitas',
+          data: [12000, 13500, 11000, 14500, 15000],
+          backgroundColor: 'rgba(56, 142, 60, 0.6)'
+        },
+        {
+          label: 'Despesas',
+          data: [8000, 9000, 7500, 9500, 10000],
+          backgroundColor: 'rgba(211, 47, 47, 0.6)'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+<script> 
+document.getElementById('formTransacao').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Pega valores, adiciona linha na tabela, atualiza gráfico
+});
+
+
+localStorage.setItem('transacoes', JSON.stringify(arrayDeTransacoes));
+
+let recuperado = JSON.parse(localStorage.getItem('transacoes'));
+</script>
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
 </body>
 
 </html>

@@ -82,6 +82,57 @@
                 <h2>COMUNICAÇÃO</h2>
             </div>
 
+<<<<<<< HEAD
+<!--Código da Comunicação-->
+
+<div class="comunicacao-dashboard">
+  <h2>Comunicação</h2>
+
+  <div class="comunicacao-layout">
+    <!-- Coluna da Esquerda -->
+    <div class="chat-section">
+      <h3>💬 Chat da Equipe</h3>
+      <div class="chat-box">
+        <div class="chat-message">João: Atualizei o cronograma.</div>
+        <div class="chat-message">Ana: Perfeito, vou revisar!</div>
+        <div class="chat-message">Carlos: Incluí a tarefa do cliente.</div>
+      </div>
+      <input type="text" class="chat-input" placeholder="Digite sua mensagem...">
+      <button onclick="enviarMensagem()" class="chat-send">Enviar</button>
+    </div>
+
+    <!-- Coluna da Direita -->
+    <div class="info-section">
+      <div class="card aviso">
+        <h4>📢 Avisos Gerais</h4>
+        <ul>
+          <li>Reunião geral amanhã às 10h.</li>
+          <li>Lembrete: Atualizar metas da semana.</li>
+        </ul>
+      </div>
+
+      <div class="card inbox">
+        <h4>📥 Caixa de Entrada</h4>
+        <ul>
+          <li><strong>RH:</strong> Plano de benefícios 2025</li>
+          <li><strong>Financeiro:</strong> Orçamento liberado</li>
+        </ul>
+      </div>
+
+      <div class="card status">
+        <h4>📊 Status de Comunicação</h4>
+        <p>Canais ativos: <strong>4/4</strong></p>
+        <p>Média de resposta: <strong>1h 20min</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--FIM-->
+
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
             <div class="main-cards">
                 <div class="card">
                     <div class="card-inner">
@@ -92,6 +143,28 @@
         </main>
     </div>
     <script src="js/scripts.js"></script>
+<<<<<<< HEAD
+
+<script>
+  function enviarMensagem() {
+    const input = document.querySelector('.chat-input');
+    const mensagem = input.value.trim();
+
+    if (mensagem !== '') {
+      const chatBox = document.querySelector('.chat-box');
+      const novaMensagem = document.createElement('div');
+      novaMensagem.className = 'chat-message';
+      novaMensagem.textContent = "Você: " + mensagem;
+      chatBox.appendChild(novaMensagem);
+      input.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  }
+</script>
+
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
 </body>
 
 </html>
