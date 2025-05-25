@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Fonte (Google) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- </ -->
+    <!-- Icones (Google) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- </ -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">trending_up</span> OrganiZATION
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados        
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>DADOS</h2>
+            </div>
+<<<<<<< HEAD
+<!--Código do DADOS-->
+
+ <div class="dashboard">
+        <header>
+            <h1>Dados</h1>
+        </header>
+
+        <section class="charts">
+            <div class="chart">
+                <h2>Produtividade Mensal</h2>
+                <p class="info">+8%</p>
+                <canvas id="produtividadeMensal"></canvas>
+
+            </div>
+            <div class="chart">
+                <h2>Tarefas por Equipe</h2>
+                <p class="info">+8%</p>
+                <canvas id="tarefasPorEquipe"></canvas>
+
+            </div>
+            <div class="chart">
+                <h2>Taxa de Erro (%)</h2>
+                <canvas id="meuGrafico"></canvas>
+
+            </div>
+        </section>
+
+        <section class="info">
+            <p>Volume de tarefas aumentou 25% esta semana</p>
+        </section>
+
+        <section class="tasks">
+            <div class="filter">
+                <label for="filter">Filtrar por:</label>
+                <select id="filter">
+                    <option value="mes">Mês</option>
+                    <option value="semana">Semana</option>
+                    <option value="ano">Ano</option>
+                </select>
+                <button>Exportar</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tarefa</th>
+                        <th>Responsável</th>
+                        <th>Equipe</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1001</td><td>Análise de dados</td><td>João</td><td>A</td><td>Concluída</td></tr>
+                    <tr><td>1002</td><td>Revisão de projeto</td><td>Maria</td><td>B</td><td>Concluída</td></tr>
+                    <tr><td>1003</td><td>Teste de sistema</td><td>Pedro</td><td>C</td><td>Em andamento</td></tr>
+                    <tr><td>1004</td><td>Correção de bug</td><td>Paulo</td><td>A</td><td>Concluída</td></tr>
+                    <tr><td>1005</td><td>Documentação</td><td>João</td><td>C</td><td>Concluída</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+
+<!--FIM DO CODIGO-->
+=======
+
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/scripts.js"></script>
+<<<<<<< HEAD
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
+    <script>
+var ctx = document.getElementById('meuGrafico').getContext('2d');
+var meuGrafico = new Chart(ctx, {
+    type: 'bar', // Tipos: bar, line, pie, etc.
+    data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+        datasets: [{
+            label: 'Produtividade',
+            data: [10, 15, 7, 20, 18],
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+var ctx = document.getElementById('tarefasPorEquipe').getContext('2d');
+
+var tarefasPorEquipe = new Chart(ctx, {
+    type: 'pie', // Alterando para gráfico de pizza
+    data: {
+        labels: ['Equipe A', 'Equipe B', 'Equipe C', 'Equipe D'],
+        datasets: [{
+            label: 'Tarefas Concluídas',
+            data: [120, 95, 150, 110], // Quantidade de tarefas por equipe
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+var ctx = document.getElementById('produtividadeMensal').getContext('2d');
+
+var produtividadeMensal = new Chart(ctx, {
+    type: 'line', // Alterando para gráfico de linha
+    data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        datasets: [{
+            label: 'Produtividade (%)',
+            data: [85, 78, 92, 88, 95, 90, 87, 89, 93, 94, 97, 99], // Valores fictícios
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 2,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+    </script>
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
+</body>
+
+</html>

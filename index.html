@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined" id="notifications-icon">notifications</span>
+                <span class="material-icons-outlined" id="email-icon">email</span>
+                <span class="material-icons-outlined" id="account-icon">account_circle</span>
+            </div>
+        </header>
+
+        <div id="notificacoes-aba" class="dropdown-menu">
+            <h4>Notificações</h4>
+            <div class="dropdown-content">
+                <p><span>•</span> Nova tarefa "Revisar Projeto X" atribuída a você.</p>
+                <p><span>•</span> O projeto "Praça Central" atingiu 75% de conclusão.</p>
+                <p><span>•</span> Lembrete: Reunião de Planejamento amanhã às 10h.</p>
+            </div>
+            <div class="dropdown-actions">
+                <button onclick="limparNotificacoes()">Limpar Tudo</button>
+                <a href="/child-pages/comunicar/notificacao.html"><button>Ver Todas</button></a>
+            </div>
+        </div>
+
+        <div id="mensagens-aba" class="dropdown-menu">
+            <h4>Mensagens</h4>
+            <div class="dropdown-content">
+                <p><span>•</span> João Silva: "Você pode verificar o relatório?"</p>
+                <p><span>•</span> Maria Souza: "Atualização sobre a reunião."</p>
+            </div>
+            <div class="dropdown-actions">
+                <button onclick="marcarTodasLidas()">Marcar como lidas</button>
+                <a href="/child-pages/comunicar/cominterna.html"><button>Ver Todas</button></a>
+            </div>
+        </div>
+
+        <div id="usuario-aba" class="dropdown-menu">
+            <div class="profile-header">
+                <img src="/img/profile-placeholder.png" alt="Foto de Perfil" class="profile-pic">
+                <p>Bem-vindo(a), <span id="nome-usuario">Admin</span></p>
+            </div>
+            <button class="profile-option" id="button-perfil">
+                <span class="material-icons-outlined">person</span> Meu Perfil
+            </button>
+            <button class="profile-option" id="button-settings">
+                <span class="material-icons-outlined">settings</span> Configurações
+            </button>
+            <button class="profile-option toggle-switch" id="toggle-dark-mode">
+                <span class="material-icons-outlined light-icon">light_mode</span>
+                <span class="material-icons-outlined dark-icon" style="display: none;">dark_mode</span>
+                <span class="toggle-text">Modo Escuro</span>
+            </button>
+            <button class="profile-option" id="button-ajuda">
+                <span class="material-icons-outlined">help_outline</span> Ajuda
+            </button>
+            <button class="profile-option logout" id="button-sair">
+                <span class="material-icons-outlined">logout</span> Sair
+            </button>
+        </div>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>PLANEJAMENTO</h2>
+            </div>
+
+            <div class="planejamento-header-actions">
+                <input type="text" id="buscaProjetos" placeholder="Buscar projetos..." class="input-busca">
+                <select id="filtroStatus" class="filtro-status">
+                    <option value="">Todos os Status</option>
+                    <option value="em-andamento">Em Andamento</option>
+                    <option value="concluido">Concluído</option>
+                    <option value="atrasado">Atrasado</option>
+                    <option value="pendente">Pendente</option>
+                </select>
+                <select id="filtroSecretaria" class="filtro-secretaria">
+                    <option value="">Todas as Secretarias</option>
+                    <option value="obras">Obras</option>
+                    <option value="educacao">Educação</option>
+                    <option value="saude">Saúde</option>
+                </select>
+                <button id="btnNovoProjeto" class="btn-novo-projeto">
+                    <span class="material-icons-outlined">add</span> Novo Projeto
+                </button>
+            </div>
+
+            <div class="estatisticas-rapidas">
+                <div class="card-estatistica">
+                    <h3>Projetos Ativos</h3>
+                    <p id="totalProjetosAtivos">0</p>
+                </div>
+                <div class="card-estatistica">
+                    <h3>Projetos Atrasados</h3>
+                    <p id="totalProjetosAtrasados" class="alerta">0</p>
+                </div>
+                <div class="card-estatistica">
+                    <h3>Projetos Concluídos (Mês)</h3>
+                    <p id="totalProjetosConcluidosMes">0</p>
+                </div>
+            </div>
+
+            <div class="planejamento-layout">
+                <section class="lista-projetos-section">
+                    <h2>Projetos Atuais</h2>
+                    <div id="listaProjetos" class="lista-projetos">
+                        </div>
+                </section>
+
+                <section class="insights-section">
+                    <h2>Insights de Planejamento</h2>
+                    <div class="chart-box">
+                        <h4>Status dos Projetos</h4>
+                        <canvas id="statusProjetosChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h4>Cronograma Simplificado</h4>
+                        <canvas id="cronogramaProjetosChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalProjetoOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <h4 id="modalProjetoTitle">Novo Projeto</h4>
+            <form id="formProjeto">
+                <input type="hidden" id="projectId">
+                <div class="campo">
+                    <label for="projectName">Nome do Projeto</label>
+                    <input type="text" id="projectName" required>
+                </div>
+                <div class="campo">
+                    <label for="projectSecretaria">Secretaria</label>
+                    <select id="projectSecretaria" required>
+                        <option value="obras">Obras</option>
+                        <option value="educacao">Educação</option>
+                        <option value="saude">Saúde</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="projectStatus">Status</label>
+                    <select id="projectStatus" required>
+                        <option value="em-andamento">Em Andamento</option>
+                        <option value="concluido">Concluído</option>
+                        <option value="atrasado">Atrasado</option>
+                        <option value="pendente">Pendente</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="projectProgresso">Progresso (%)</label>
+                    <input type="number" id="projectProgresso" min="0" max="100" value="0" required>
+                </div>
+                <div class="campo">
+                    <label for="projectDataInicio">Data de Início</label>
+                    <input type="date" id="projectDataInicio" required>
+                </div>
+                <div class="campo">
+                    <label for="projectDataFim">Data de Fim</label>
+                    <input type="date" id="projectDataFim" required>
+                </div>
+                <button type="submit" class="btn-modal-confirm">Salvar Projeto</button>
+                <button type="button" id="btnCancelarProjeto" class="btn-modal-cancel">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/header-actions.js" defer></script>
+    <script src="js/planejamento.js"></script>
+</body>
+
+</html>

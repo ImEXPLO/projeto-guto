@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicação</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Fonte (Google) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- </ -->
+    <!-- Icones (Google) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- </ -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">trending_up</span> OrganiZATION
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados        
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>COMUNICAÇÃO</h2>
+            </div>
+
+<<<<<<< HEAD
+<!--Código da Comunicação-->
+
+<div class="comunicacao-dashboard">
+  <h2>Comunicação</h2>
+
+  <div class="comunicacao-layout">
+    <!-- Coluna da Esquerda -->
+    <div class="chat-section">
+      <h3>💬 Chat da Equipe</h3>
+      <div class="chat-box">
+        <div class="chat-message">João: Atualizei o cronograma.</div>
+        <div class="chat-message">Ana: Perfeito, vou revisar!</div>
+        <div class="chat-message">Carlos: Incluí a tarefa do cliente.</div>
+      </div>
+      <input type="text" class="chat-input" placeholder="Digite sua mensagem...">
+      <button onclick="enviarMensagem()" class="chat-send">Enviar</button>
+    </div>
+
+    <!-- Coluna da Direita -->
+    <div class="info-section">
+      <div class="card aviso">
+        <h4>📢 Avisos Gerais</h4>
+        <ul>
+          <li>Reunião geral amanhã às 10h.</li>
+          <li>Lembrete: Atualizar metas da semana.</li>
+        </ul>
+      </div>
+
+      <div class="card inbox">
+        <h4>📥 Caixa de Entrada</h4>
+        <ul>
+          <li><strong>RH:</strong> Plano de benefícios 2025</li>
+          <li><strong>Financeiro:</strong> Orçamento liberado</li>
+        </ul>
+      </div>
+
+      <div class="card status">
+        <h4>📊 Status de Comunicação</h4>
+        <p>Canais ativos: <strong>4/4</strong></p>
+        <p>Média de resposta: <strong>1h 20min</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--FIM-->
+
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/scripts.js"></script>
+<<<<<<< HEAD
+
+<script>
+  function enviarMensagem() {
+    const input = document.querySelector('.chat-input');
+    const mensagem = input.value.trim();
+
+    if (mensagem !== '') {
+      const chatBox = document.querySelector('.chat-box');
+      const novaMensagem = document.createElement('div');
+      novaMensagem.className = 'chat-message';
+      novaMensagem.textContent = "Você: " + mensagem;
+      chatBox.appendChild(novaMensagem);
+      input.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  }
+</script>
+
+
+=======
+>>>>>>> 39c3e0d9984063081dcf119f2428c196c75ed80c
+</body>
+
+</html>
