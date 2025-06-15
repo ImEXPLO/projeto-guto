@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Performance</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles-performance.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="grid-container">
+    <header class="header">
+        <div class="menu-icon" onclick="openSidebar()"><span class="material-icons-outlined">menu</span></div>
+        <div class="header-left"><span class="material-icons-outlined">search</span></div>
+        <div class="header-right"><span class="material-icons-outlined">notifications</span><span class="material-icons-outlined">email</span><span class="material-icons-outlined">account_circle</span></div>
+    </header>
+    <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+    <main class="main-container">
+      <div class="main-title">
+        <h2>PAINEL DE PERFORMANCE</h2>
+      </div>
+
+      <div class="performance-dashboard">
+        
+        <div class="kpi-container">
+          <div class="kpi-card"><div class="card-icon" style="background-color: #28a745;"><span class="material-icons-outlined">check_circle</span></div><div class="card-content"><h4>Metas Atingidas</h4><p id="kpi-metas">18/25</p></div></div>
+          <div class="kpi-card"><div class="card-icon" style="background-color: #007bff;"><span class="material-icons-outlined">schedule</span></div><div class="card-content"><h4>Projetos no Prazo</h4><p id="kpi-projetos">92%</p></div></div>
+          <div class="kpi-card"><div class="card-icon" style="background-color: #fd7e14;"><span class="material-icons-outlined">task_alt</span></div><div class="card-content"><h4>Tarefas Concluídas</h4><p id="kpi-tarefas">180</p></div></div>
+          <div class="kpi-card efficiency-card"><div class="card-icon" style="background-color: #6f42c1;"><span class="material-icons-outlined">speed</span></div><div class="card-content"><h4>Eficiência Geral</h4><p id="kpi-eficiencia">85%</p></div></div>
+        </div>
+
+        <div class="actions-container">
+            <select id="period-filter">
+                <option value="30d">Últimos 30 dias</option>
+                <option value="trimestre">Trimestre Atual</option>
+                <option value="semestre">Último Semestre</option>
+                <option value="ano">Ano Completo</option>
+            </select>
+            <div class="actions-buttons">
+                <button class="btn-secondary" id="btnVerHistorico">Ver Histórico</button>
+                <button class="btn-add" id="btnNovaMeta">+ Nova Meta</button>
+            </div>
+        </div>
+        
+        <div class="charts-container">
+          <div class="chart-box"><h4>Desempenho de Projetos</h4><canvas id="lineChart"></canvas></div>
+          <div class="chart-box"><h4>Trabalho por Equipe</h4><canvas id="pieChart"></canvas></div>
+          <div class="chart-box"><h4>Desempenho por Área</h4><canvas id="barChart"></canvas></div>
+          <div class="chart-box"><h4>Eficiência Operacional</h4><canvas id="gaugeChart"></canvas></div>
+        </div>
+
+        <div class="goals-table-container">
+            <h3>Metas Recentes</h3>
+            <table class="goals-table">
+                <thead>
+                    <tr>
+                        <th>Meta</th>
+                        <th>Área</th>
+                        <th>Status</th>
+                        <th>Progresso</th>
+                        <th>Responsável</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="goals-table-body"></tbody>
+            </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modalNovaMeta" class="modal">
+      <div class="modal-content"><span class="close-button">&times;</span><h2>Cadastrar Nova Meta</h2><form id="formNovaMeta"><div class="form-group"><label for="metaNome">Nome da Meta</label><input type="text" id="metaNome" required></div><div class="form-group"><label for="metaArea">Área Responsável</label><select id="metaArea" required><option value="Projetos">Projetos</option><option value="RH">Recursos Humanos</option><option value="TI">Tecnologia da Informação</option><option value="Financeiro">Financeiro</option><option value="Operacional">Operacional</option></select></div><div class="form-group"><label for="metaValor">Valor Alvo</label><input type="number" id="metaValor" placeholder="Ex: 100" required></div><div class="form-group"><label for="metaProgresso">Progresso Inicial (%)</label><input type="number" id="metaProgresso" placeholder="Ex: 10" required min="0" max="100"></div><div class="form-group"><label for="metaPrazo">Prazo</label><input type="date" id="metaPrazo" required></div><div class="form-group"><label for="metaResponsavel">Responsável</label><input type="text" id="metaResponsavel" placeholder="Nome do gestor" required></div><button type="submit" class="btn-submit">Salvar Meta</button></form></div>
+  </div>
+  <div id="modalConfirmarExclusao" class="modal">
+      <div class="modal-content small-modal"><span class="close-button">&times;</span><h4>Confirmar Ação</h4><p>Você tem certeza que deseja mover esta meta para o histórico?</p><div class="modal-buttons"><button id="btnCancelarExclusao" class="btn-secondary">Cancelar</button><button id="btnConfirmarExclusao" class="btn-danger">Confirmar</button></div></div>
+  </div>
+  <div id="modalHistorico" class="modal">
+      <div class="modal-content large-modal"><span class="close-button">&times;</span><h4>Histórico de Metas Arquivadas</h4><div class="table-wrapper"><table class="goals-table"><thead><tr><th>Meta</th><th>Área</th><th>Responsável</th><th>Data de Arquivamento</th><th>Ações</th></tr></thead><tbody id="history-table-body"></tbody></table></div></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/performance.js"></script>
+  <script src="js/header-actions.js"></script>
+  </body>
+</html>

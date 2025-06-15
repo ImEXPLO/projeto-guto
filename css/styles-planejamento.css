@@ -1,0 +1,546 @@
+/* styles-planejamento.css */
+
+/* ==========================================================================
+   ESTILO PARA O TÍTULO PRINCIPAL DA PÁGINA
+   ========================================================================== */
+
+.main-title {
+    background-color: var(--cor-card-fundo);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    max-width: 400px; /* Um pouco maior para o título "PLANEJAMENTO" */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--cor-modal-titulo);
+    font-weight: bold;
+}
+
+/* CSS do Index (Planejamento) */
+.planejamento-header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-card-fundo);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+}
+
+.input-busca,
+.filtro-status,
+.filtro-secretaria {
+    padding: 10px 15px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--cor-card-texto);
+    background-color: var(--cor-card-fundo);
+    outline: none;
+    flex: 1;
+    min-width: 180px;
+}
+
+.input-busca::placeholder {
+    color: var(--cor-borda-clara);
+}
+
+.btn-novo-projeto {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-novo-projeto:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.btn-novo-projeto .material-icons-outlined {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
+
+.estatisticas-rapidas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    justify-content: space-around;
+}
+
+.card-estatistica {
+    background: var(--cor-card-fundo);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    color: var(--cor-card-texto);
+}
+
+.card-estatistica h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: var(--cor-card-texto);
+}
+
+.card-estatistica p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cor-modal-titulo);
+}
+
+.card-estatistica p.alerta {
+    color: var(--cor-vermelho-despesa);
+}
+
+.planejamento-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* Alinha os itens flexíveis ao topo */
+}
+
+.lista-projetos-section {
+    flex: 2;
+    min-width: 350px;
+    background-color: var(--cor-card-fundo);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    /* Adicionado flex-shrink: 0 para evitar que encolha demais */
+    flex-shrink: 0;
+}
+
+.lista-projetos-section h2,
+.insights-section h2 {
+    color: var(--cor-modal-titulo);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.lista-projetos {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card-projeto {
+    background-color: var(--cor-botao-padrao-fundo);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+    color: var(--cor-card-texto);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--cor-card-sombra);
+}
+
+.card-projeto h3 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    color: var(--cor-modal-titulo);
+}
+
+.card-projeto p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--cor-card-texto);
+}
+
+.card-projeto .progresso {
+    background-color: var(--cor-borda-clara);
+    border-radius: 5px;
+    height: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.card-projeto .barra-progresso {
+    height: 100%;
+    background-color: var(--cor-modal-titulo);
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+.card-projeto .progresso span {
+    display: block;
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--cor-card-texto);
+    margin-top: 5px;
+}
+
+.card-projeto .datas {
+    font-size: 0.85rem;
+    color: var(--cor-card-texto);
+}
+
+.card-projeto .acoes-projeto {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: flex-end;
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.card-projeto .btn-detalhes,
+.card-projeto .btn-editar {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.card-projeto .btn-editar {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+}
+
+.card-projeto .btn-detalhes:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.card-projeto .btn-editar:hover {
+    background-color: var(--cor-borda-clara);
+}
+
+/* Cores de status para os cards de projeto */
+.card-projeto.status-em-andamento {
+    border-left: 5px solid var(--cor-modal-titulo);
+}
+.card-projeto.status-concluido {
+    border-left: 5px solid var(--cor-azul-concluido);
+}
+.card-projeto.status-atrasado {
+    border-left: 5px solid var(--cor-vermelho-despesa);
+}
+.card-projeto.status-pendente {
+    border-left: 5px solid #ffc107;
+}
+
+.card-projeto.status-concluido .barra-progresso {
+    background-color: var(--cor-azul-concluido); /* Set progress bar to blue for completed projects */
+}
+
+/* Novo estilo para o botão de excluir */
+.card-projeto .btn-excluir {
+    background: none;
+    border: none;
+    color: var(--cor-vermelho-despesa); /* Cor do ícone de lixeira */
+    cursor: pointer;
+    font-size: 1rem; /* Ajuste o tamanho do ícone se necessário */
+    padding: 5px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 50%; /* Para deixá-lo circular */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-projeto .btn-excluir:hover {
+    background-color: rgba(211, 47, 47, 0.1); /* Um leve fundo vermelho ao passar o mouse */
+    color: #b00020; /* Um vermelho um pouco mais escuro no hover */
+}
+
+.card-projeto .btn-excluir .material-icons-outlined {
+    font-size: inherit; /* Garante que o ícone herde o tamanho do botão */
+    color: inherit; /* Garante que o ícone herde a cor do botão */
+}
+
+.insights-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--cor-card-fundo);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    /* Adicionado flex-shrink: 0 para evitar que encolha demais */
+    flex-shrink: 0;
+}
+
+.insights-section .chart-box {
+    background-color: var(--cor-card-fundo);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    text-align: center;
+    /* Altura mínima para os gráficos */
+    min-height: 250px; /* Ajuste conforme a necessidade de cada gráfico */
+    display: flex; /* Adicionado para centralizar conteúdo verticalmente */
+    flex-direction: column; /* Conteúdo em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.insights-section .chart-box h4 {
+    color: var(--cor-card-texto);
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    /* Adicionado altura máxima para evitar que o gráfico cresça indefinidamente */
+    max-height: 300px; /* Ajuste este valor se os gráficos ficarem muito altos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .planejamento-layout {
+        flex-direction: column;
+    }
+    .planejamento-header-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input-busca,
+    .filtro-status,
+    .filtro-secretaria,
+    .btn-novo-projeto {
+        width: 100%;
+    }
+    .estatisticas-rapidas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .card-estatistica {
+        width: 100%;
+        min-width: unset;
+    }
+    .lista-projetos-section,
+    .insights-section {
+        min-width: unset;
+        flex: auto;
+    }
+}
+
+/* Estilo para o novo botão de Histórico */
+.btn-historico {
+    background-color: #6c757d; /* Cinza secundário */
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-historico:hover {
+    background-color: #5a6268;
+}
+
+.btn-historico .material-icons-outlined {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilos para o Modal de Histórico */
+.modal-large {
+    max-width: 800px;
+}
+
+.tabela-historico-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+}
+
+.tabela-historico {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-historico th,
+.tabela-historico td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--cor-borda-clara);
+}
+
+.tabela-historico th {
+    background-color: var(--cor-botao-padrao-fundo);
+    position: sticky;
+    top: 0;
+}
+
+.btn-restaurar, .btn-excluir-perm {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn-restaurar {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+}
+
+.btn-restaurar:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.btn-excluir-perm {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-vermelho-despesa);
+}
+
+.btn-excluir-perm:hover {
+    background-color: var(--cor-borda-clara);
+}
+
+/* ==========================================================================
+   ESTILOS GERAIS PARA MODAIS (Formulário e Histórico)
+   ========================================================================== */
+
+/* Overlay que cobre a tela (escondido por padrão) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo-modal-overlay);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+    overflow-y: auto; /* Permite rolar se o conteúdo for maior que a tela */
+}
+
+/* Conteúdo do Modal (a "caixa" branca) */
+.modal-content {
+    background-color: var(--cor-modal-fundo);
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px var(--cor-dropdown-menu-sombra);
+    text-align: left;
+    max-width: 600px; /* Um bom tamanho para formulários */
+    width: 100%;
+    color: var(--cor-modal-texto);
+    margin: auto; /* Centraliza verticalmente quando há rolagem */
+}
+
+.modal-content h4 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    color: var(--cor-modal-titulo);
+    text-align: center;
+}
+
+/* Estilos específicos para o formulário de "Novo Projeto" */
+.form-projeto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-projeto .campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-projeto label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--cor-card-texto);
+}
+
+.form-projeto input,
+.form-projeto select,
+.form-projeto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+}
+
+/* Botões do formulário */
+.form-projeto .botoes-form {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-projeto button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-salvar-projeto {
+    background-color: var(--cor-verde-receita);
+    color: var(--cor-texto-principal);
+}
+
+.btn-salvar-projeto:hover {
+    filter: brightness(1.1);
+}
+
+.btn-cancelar {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+    border: 1px solid var(--cor-borda-clara);
+}
+.btn-cancelar:hover {
+    background-color: var(--cor-borda-clara);
+}

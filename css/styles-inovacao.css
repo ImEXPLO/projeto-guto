@@ -1,0 +1,262 @@
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE INOVAÇÃO
+   ========================================================================== */
+
+/* Bloco de Introdução (Hero) */
+.inovacao-hero {
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+    padding: 30px 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+}
+
+.hero-icon svg {
+    /* CORREÇÃO: Garante que o ícone SVG tenha a cor correta */
+    stroke: var(--cor-modal-titulo); 
+}
+
+.hero-text h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.2rem;
+    color: var(--cor-modal-titulo);
+}
+
+.hero-text p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--cor-card-texto);
+}
+
+/* Grid Principal */
+.inovacao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.inovacao-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card Padrão de Inovação */
+.card-inovacao {
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    transition: transform 0.2s ease-in-out;
+    border-left: 5px solid var(--cor-modal-titulo);
+}
+
+.card-inovacao:hover {
+    transform: translateY(-5px);
+}
+
+.card-inovacao h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cor-modal-titulo);
+}
+
+/* CORREÇÃO: Define a cor do ícone do título explicitamente */
+.card-inovacao h3 .material-icons-outlined {
+    font-size: 28px;
+    color: var(--cor-modal-titulo); /* Garante que o ícone tenha a cor do título */
+}
+
+.card-inovacao h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--cor-card-texto);
+    border-bottom: 1px solid var(--cor-borda-clara);
+    padding-bottom: 5px;
+}
+
+.card-inovacao p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.card-inovacao ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-inovacao ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.card-inovacao ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--cor-modal-titulo);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.tag-tec {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Calendário Widget */
+#calendario-widget {
+    font-family: 'Inter', sans-serif;
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#mes-ano {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.dia-semana, .dia {
+    padding: 8px 5px;
+    border-radius: 4px;
+}
+
+.dia-semana {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.dia {
+    cursor: default;
+    transition: background-color 0.2s;
+}
+
+.dia-outro-mes {
+    color: #aaa;
+}
+
+.dia-hoje {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    font-weight: bold;
+}
+
+.dia-evento {
+    background-color: var(--cor-azul-concluido);
+    color: white;
+    position: relative;
+    font-weight: bold;
+}
+
+.dia-evento::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--cor-vermelho-despesa);
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#calendario-eventos-lista {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+#calendario-eventos-lista strong {
+    color: var(--cor-modal-titulo);
+}
+
+/* Formulário de Ideias */
+#form-ideia .form-group {
+    margin-bottom: 15px;
+}
+
+#form-ideia label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#form-ideia input,
+#form-ideia textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--cor-borda-clara);
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: var(--cor-botao-padrao-fundo);
+    color: var(--cor-card-texto);
+}
+
+.btn-enviar-ideia {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-enviar-ideia:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+
+/* AJUSTES PARA MODO ESCURO */
+.dark-mode .inovacao-hero {
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+}
+.dark-mode .hero-text p {
+    color: var(--cor-texto-principal);
+}
+.dark-mode .card-inovacao {
+    border-left-color: var(--cor-modal-titulo);
+}
+.dark-mode .tag-tec {
+    background-color: #555;
+    color: #f0f0f0;
+}
+.dark-mode #form-ideia input,
+.dark-mode #form-ideia textarea {
+    background: #555;
+    color: #f0f0f0;
+    border-color: #666;
+}

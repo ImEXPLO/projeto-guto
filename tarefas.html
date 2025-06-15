@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-tarefas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()"><span class="material-icons-outlined">menu</span></div>
+            <div class="header-left"><span class="material-icons-outlined">search</span></div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand"><img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo"></div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos"><span class="material-icons-outlined">work</span> Projetos</li>
+                <li class="sidebar-list-item" id="lista-tarefas"><span class="material-icons-outlined">task</span> Tarefas e Fluxo</li>
+                <li class="sidebar-list-item" id="lista-equipes"><span class="material-icons-outlined">group</span> Equipes e RH</li>
+                <li class="sidebar-list-item" id="lista-financa"><span class="material-icons-outlined">account_balance_wallet</span> Finanças</li>
+                <li class="sidebar-list-item" id="lista-mensagem"><span class="material-icons-outlined">message</span> Comunicação</li>
+                <li class="sidebar-list-item" id="lista-dados"><span class="material-icons-outlined">storage</span> Dados</li>
+                <li class="sidebar-list-item" id="lista-inovar"><span class="material-icons-outlined">lightbulb</span> Inovação</li>
+                <li class="sidebar-list-item" id="lista-riscos"><span class="material-icons-outlined">warning</span> Riscos</li>
+                <li class="sidebar-list-item" id="lista-performance"><span class="material-icons-outlined">assessment</span> Performance</li>
+                <li class="sidebar-list-item" id="lista-integrar"><span class="material-icons-outlined">link</span> Integração</li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>TAREFAS</h2>
+            </div>
+
+            <div class="search-and-add-container">
+                <input type="text" id="taskSearch" placeholder="Buscar tarefa por título ou responsável..." class="search-input">
+                <button id="historyBtn" class="history-btn"><span class="material-icons-outlined">history</span> Histórico</button>
+                <button id="addTaskBtn" class="add-task-btn"><span class="material-icons-outlined">add</span> Nova Tarefa</button>
+            </div>
+            
+            <div class="filters-and-counters">
+                <div class="filter-group">
+                    <label for="statusFilter">Status:</label>
+                    <select id="statusFilter">
+                        <option value="todos">Todos</option>
+                        <option value="Pendente">Pendente</option>
+                        <option value="Em Andamento">Em Andamento</option>
+                        <option value="Concluída">Concluída</option>
+                    </select>
+                    <label for="priorityFilter">Prioridade:</label>
+                    <select id="priorityFilter">
+                        <option value="todas">Todas</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </div>
+                <div id="taskCounters" class="task-counters"></div>
+            </div>
+
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th>Concluída</th>
+                        <th>Tarefa</th>
+                        <th>Responsável</th>
+                        <th class="sortable" data-sort="dueDate">Data <span class="sort-arrow">↕️</span></th>
+                        <th class="sortable" data-sort="priority">Prioridade <span class="sort-arrow">↕️</span></th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="taskTableBody"></tbody>
+            </table>
+
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>DISTRIBUIÇÃO DE TAREFAS POR STATUS</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="tasksChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Nova Tarefa</h2>
+            <form id="addTaskForm">
+                <div class="form-group"><label for="taskTitle">Título da Tarefa:</label><input type="text" id="taskTitle" required></div>
+                <div class="form-group"><label for="taskResponsible">Responsável:</label><input type="text" id="taskResponsible" required></div>
+                <div class="form-group"><label for="taskDueDate">Data de Conclusão:</label><input type="date" id="taskDueDate" required></div>
+                <div class="form-group">
+                    <label for="taskPriority">Prioridade:</label>
+                    <select id="taskPriority" required><option value="Baixa">Baixa</option><option value="Média">Média</option><option value="Alta">Alta</option></select>
+                </div>
+                <button type="submit" class="submit-btn">Adicionar Tarefa</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="historyModal" class="modal">
+        <div class="modal-content modal-lg">
+            <span class="close-button history-close-button">&times;</span>
+            <h2>Histórico de Tarefas Excluídas</h2>
+            <div class="history-actions">
+                <button id="clearHistoryBtn" class="clear-history-btn"><span class="material-icons-outlined">delete_sweep</span> Limpar Histórico</button>
+            </div>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/tarefas.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+</html>

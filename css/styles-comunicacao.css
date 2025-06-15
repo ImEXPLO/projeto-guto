@@ -1,0 +1,386 @@
+/* ==========================================================================
+   ESTILO PARA O TÍTULO PRINCIPAL DA PÁGINA
+   ========================================================================== */
+
+.main-title {
+    background-color: var(--cor-card-fundo);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    max-width: 400px; /* Um pouco maior para o título "PLANEJAMENTO" */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--cor-modal-titulo);
+    font-weight: bold;
+}
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE COMUNICAÇÃO
+   ========================================================================== */
+
+.comunicacao-dashboard {
+    padding: 10px;
+    background-color: transparent; /* Remove o fundo duplo */
+    font-family: 'Inter', sans-serif;
+}
+
+.comunicacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.comunicacao-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--cor-card-fundo);
+}
+
+.btn-confidencial {
+    background-color: var(--cor-vermelho-despesa);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-confidencial:hover {
+    background-color: #a72828;
+}
+
+.btn-confidencial .material-icons-outlined {
+    font-size: 20px;
+}
+
+.comunicacao-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Coluna do chat maior */
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: var(--cor-card-fundo);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    color: var(--cor-card-texto);
+}
+
+.card h3, .card h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: var(--cor-modal-titulo);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card h3 .material-icons-outlined,
+.card h4 .material-icons-outlined {
+    font-size: 24px;
+}
+
+/* --- Estilos do Chat --- */
+.chat-section {
+    display: flex;
+    flex-direction: column;
+    height: 500px; /* Altura fixa para o card de chat */
+}
+
+.chat-box {
+    background-color: var(--cor-botao-padrao-fundo);
+    flex-grow: 1; /* Ocupa todo o espaço disponível */
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.chat-setor-header {
+    font-weight: bold;
+    color: var(--cor-modal-titulo);
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--cor-borda-clara);
+}
+.chat-setor-header:first-child {
+    margin-top: 0;
+}
+
+.chat-message {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.chat-message-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.chat-message-time {
+    font-size: 0.75rem;
+    color: #777;
+    margin-left: 8px;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#chatSetor {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda-clara);
+    background-color: #fff;
+    flex-basis: 120px;
+}
+
+#chatInput {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda-clara);
+}
+
+.chat-send {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chat-send:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+/* --- Seção de Informações --- */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Avisos Gerais --- */
+.card-avisos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aviso-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 4px solid;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.aviso-item .material-icons-outlined {
+    font-size: 20px;
+}
+
+.aviso-prioridade-alta {
+    border-color: var(--cor-vermelho-despesa);
+    background-color: #ffeded;
+    color: #9c3333;
+}
+
+.aviso-prioridade-media {
+    border-color: #ffc107;
+    background-color: #fff8e1;
+    color: #856404;
+}
+
+.aviso-prioridade-baixa {
+    border-color: #28a745;
+    background-color: #eaf7ed;
+    color: #155724;
+}
+
+/* --- Caixa de Entrada --- */
+.card-inbox ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inbox-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--cor-borda-clara);
+    transition: background-color 0.3s;
+}
+
+.inbox-item:last-child {
+    border-bottom: none;
+}
+
+.inbox-item.lido {
+    background-color: #f8f9fa;
+    opacity: 0.7;
+}
+
+.inbox-item strong {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.btn-marcar-lido {
+    background: none;
+    border: 1px solid var(--cor-modal-titulo);
+    color: var(--cor-modal-titulo);
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    margin-left: 10px;
+}
+
+.btn-marcar-lido:hover {
+    background-color: var(--cor-modal-titulo);
+    color: white;
+}
+
+.inbox-item.lido .btn-marcar-lido {
+    display: none;
+}
+
+
+/* --- Status de Comunicação --- */
+.status-section {
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.status-canais p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.status-chart {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+/* --- Modal Confidencial --- */
+.modal-overlay {
+    background-color: var(--cor-fundo-modal-overlay);
+}
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+    resize: vertical;
+}
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-modal-titulo);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .comunicacao-layout {
+        grid-template-columns: 1fr;
+    }
+    .chat-section {
+        height: auto;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+    .chat-input-area {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* ==========================================================================
+   AJUSTES PARA O MODO ESCURO (DARK MODE)
+   ========================================================================== */
+.dark-mode .comunicacao-header h2 {
+    color: var(--cor-texto-principal); /* Garante que o título principal seja claro */
+}
+
+.dark-mode .card h3,
+.dark-mode .card h4 {
+    color: var(--cor-texto-principal); /* Deixa os títulos dos cards claros */
+}
+
+.dark-mode .chat-message-author {
+    color: #e0e0e0; /* Melhora a legibilidade do nome do autor no chat */
+}
+
+/* Ajusta as cores de fundo e texto dos avisos para melhor contraste no modo escuro */
+.dark-mode .aviso-prioridade-alta {
+    background-color: #5d1a20; /* Fundo vermelho mais escuro */
+    color: #f8d7da;           /* Texto vermelho claro */
+}
+
+.dark-mode .aviso-prioridade-media {
+    background-color: #664d03; /* Fundo amarelo/âmbar mais escuro */
+    color: #fff3cd;           /* Texto amarelo claro */
+}
+
+.dark-mode .aviso-prioridade-baixa {
+    background-color: #0f3d1e; /* Fundo verde mais escuro */
+    color: #d1e7dd;           /* Texto verde claro */
+}
+
+.dark-mode .inbox-item strong,
+.dark-mode .inbox-item span {
+    color: var(--cor-texto-principal); /* Deixa o texto da caixa de entrada claro */
+}
+
+.dark-mode .inbox-item.lido {
+    background-color: #2c2c2c; /* Fundo para item lido mais escuro */
+    opacity: 0.6;
+}
+
+.dark-mode .btn-marcar-lido {
+    color: var(--cor-modal-titulo);
+    border-color: var(--cor-modal-titulo);
+}

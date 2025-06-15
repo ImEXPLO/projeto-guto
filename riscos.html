@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Riscos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-riscos.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()"><span class="material-icons-outlined">menu</span></div>
+            <div class="header-left"><span class="material-icons-outlined">search</span></div>
+            <div class="header-right"><span class="material-icons-outlined">notifications</span><span class="material-icons-outlined">email</span><span class="material-icons-outlined">account_circle</span></div>
+        </header>
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand"><img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo"></div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos"><span class="material-icons-outlined">work</span> Projetos</li>
+                <li class="sidebar-list-item" id="lista-tarefas"><span class="material-icons-outlined">task</span> Tarefas e Fluxo</li>
+                <li class="sidebar-list-item" id="lista-equipes"><span class="material-icons-outlined">group</span> Equipes e RH</li>
+                <li class="sidebar-list-item" id="lista-financa"><span class="material-icons-outlined">account_balance_wallet</span> Finanças</li>
+                <li class="sidebar-list-item" id="lista-mensagem"><span class="material-icons-outlined">message</span> Comunicação</li>
+                <li class="sidebar-list-item" id="lista-dados"><span class="material-icons-outlined">storage</span> Dados</li>
+                <li class="sidebar-list-item" id="lista-inovar"><span class="material-icons-outlined">lightbulb</span> Inovação</li>
+                <li class="sidebar-list-item" id="lista-riscos"><span class="material-icons-outlined">warning</span> Riscos</li>
+                <li class="sidebar-list-item" id="lista-performance"><span class="material-icons-outlined">assessment</span> Performance</li>
+                <li class="sidebar-list-item" id="lista-integrar"><span class="material-icons-outlined">link</span> Integração</li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>PAINEL DE RISCOS</h2>
+            </div>
+
+            <div class="visual-analysis-section">
+                <div class="gut-matrix-container">
+                    <h3>Matriz de Priorização GUT</h3>
+                    <div class="gut-matrix"></div>
+                    <div class="gut-legend"><span>G: Gravidade</span> | <span>U: Urgência</span> | <span>T: Tendência</span></div>
+                </div>
+                <div class="chart-container">
+                    <h3>Riscos por Categoria</h3>
+                    <canvas id="risksChart"></canvas>
+                </div>
+            </div>
+
+            <div class="riscos-container">
+                <div class="header">
+                    <h2>Lista de Riscos</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary" id="btnVerHistorico">Ver Histórico</button>
+                        <button class="btn-novo" id="btnNovoRisco">+ Novo Risco</button>
+                    </div>
+                </div>
+                <div class="filters">
+                    <select id="filter-categoria"><option value="todos">Todas as Categorias</option></select>
+                    <select id="filter-nivel"><option value="todos">Todos os Níveis</option></select>
+                    <select id="filter-responsavel"><option value="todos">Todos os Responsáveis</option></select>
+                </div>
+                <table class="tabela-riscos">
+                    <thead>
+                        <tr>
+                            <th>Risco</th>
+                            <th>Categoria</th>
+                            <th>Probabilidade</th>
+                            <th>Impacto</th>
+                            <th>Nível</th>
+                            <th>Status</th>
+                            <th>Responsável</th>
+                            <th>Prazo</th>
+                            <th>GUT</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="risk-table-body"></tbody>
+                </table>
+                <div class="paginacao"><button class="pagina ativa">1</button></div>
+            </div>
+
+            <div class="level-legend">
+                <h4>Legenda de Nível de Risco:</h4>
+                <span class="legend-item low">Baixo</span><span class="legend-item medium">Médio</span><span class="legend-item high">Alto</span><span class="legend-item critical">Crítico</span>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalNovoRisco" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Cadastrar Novo Risco</h2>
+            <form id="formNovoRisco">
+                <input type="text" id="riscoNome" placeholder="Nome do Risco" required>
+                <select id="riscoCategoria" required>
+                    <option value="" disabled selected>Selecione a Categoria</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Estratégico">Estratégico</option>
+                    <option value="Operacional">Operacional</option>
+                    <option value="TI">TI</option>
+                    <option value="Financeiro">Financeiro</option>
+                </select>
+                <select id="riscoProbabilidade" required>
+                    <option value="Baixa">Probabilidade: Baixa</option>
+                    <option value="Média">Probabilidade: Média</option>
+                    <option value="Alta">Probabilidade: Alta</option>
+                </select>
+                <select id="riscoImpacto" required>
+                    <option value="Baixo">Impacto: Baixo</option>
+                    <option value="Médio">Impacto: Médio</option>
+                    <option value="Alto">Impacto: Alto</option>
+                </select>
+                <input type="text" id="riscoResponsavel" placeholder="Responsável" required>
+                <input type="date" id="riscoPrazo" required>
+                <select id="riscoStatus" required>
+                    <option value="Pendente">Status: Pendente</option>
+                    <option value="Em andamento">Status: Em Andamento</option>
+                    <option value="Concluído">Status: Concluído</option>
+                </select>
+                <fieldset class="gut-fields">
+                    <legend>Análise GUT</legend>
+                    <div><label for="gutGravidade">Gravidade (1-5):</label><input type="range" id="gutGravidade" min="1" max="5" value="1"><span id="gravidadeValue">1</span></div>
+                    <div><label for="gutUrgencia">Urgência (1-5):</label><input type="range" id="gutUrgencia" min="1" max="5" value="1"><span id="urgenciaValue">1</span></div>
+                    <div><label for="gutTendencia">Tendência (1-5):</label><input type="range" id="gutTendencia" min="1" max="5" value="1"><span id="tendenciaValue">1</span></div>
+                </fieldset>
+                <div class="gut-result"><strong>Escore GUT: <span id="gutScore">1</span></strong>
+                    <p>Classificação: <span id="gutClassification" class="tag">Baixa</span></p>
+                </div>
+                <button type="submit" class="btn-novo">Salvar Risco</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalConfirmarExclusao" class="modal">
+        <div class="modal-content small-modal">
+            <span class="close-button">&times;</span>
+            <h4>Confirmar Exclusão</h4>
+            <p>Você tem certeza de que deseja mover este risco para o histórico?</p>
+            <div class="modal-buttons">
+                <button id="btnCancelarExclusao" class="btn-secondary">Cancelar</button>
+                <button id="btnConfirmarExclusao" class="btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalHistorico" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-button">&times;</span>
+            <h4>Histórico de Riscos Arquivados</h4>
+            <div class="table-wrapper">
+                <table class="tabela-riscos">
+                    <thead>
+                        <tr>
+                            <th>Risco</th>
+                            <th>Categoria</th>
+                            <th>Responsável</th>
+                            <th>Data de Arquivamento</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/riscos.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+</html>

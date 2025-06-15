@@ -1,0 +1,455 @@
+/* CSS do Finanças */
+h1 {
+    color: var(--cor-modal-titulo);
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    background: var(--cor-card-fundo);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+    padding: 20px;
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+    color: var(--cor-card-texto);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--cor-card-texto);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--cor-verde-receita);
+}
+
+.card.receita p {
+    color: var(--cor-verde-receita);
+}
+
+.card.despesa p {
+    color: var(--cor-vermelho-despesa);
+}
+
+.chart {
+    background: var(--cor-card-fundo);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.transactions {
+    background: var(--cor-card-fundo);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+    margin-top: 30px;
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.transactions-header h3 {
+    margin: 0;
+    color: var(--cor-card-texto);
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-controls label {
+    font-weight: bold;
+    color: var(--cor-card-texto);
+    font-size: 0.95rem;
+}
+
+.filter-controls select {
+    padding: 8px 12px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--cor-card-texto);
+    background-color: var(--cor-card-fundo);
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-controls select:focus {
+    border-color: var(--cor-modal-titulo);
+    box-shadow: 0 0 0 2px rgba(40, 184, 102, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--cor-card-fundo);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px var(--cor-card-sombra);
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--cor-borda-clara);
+    color: var(--cor-card-texto);
+}
+
+th {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-card-texto);
+    padding: 12px 8px;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.sort-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+td.receita {
+    color: var(--cor-verde-receita);
+}
+
+td.despesa {
+    color: var(--cor-vermelho-despesa);
+}
+
+.main-title {
+    background-color: var(--cor-card-fundo);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--cor-modal-titulo);
+}
+
+.main-title h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--cor-modal-titulo);
+}
+
+.formulario-lancamento {
+    background-color: var(--cor-card-fundo);
+    padding: 20px;
+    margin-top: 0;
+    border-radius: 12px;
+    box-shadow: 0 0 10px var(--cor-card-sombra);
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.formulario-lancamento h3 {
+    margin-bottom: 20px;
+    color: var(--cor-modal-titulo);
+    font-size: 20px;
+    text-align: center;
+}
+
+.formulario-lancamento form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.campo {
+    flex: 1 1 calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--cor-card-texto);
+}
+
+.campo input,
+.campo select {
+    padding: 12px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+}
+
+button[type="submit"] {
+    padding: 14px 25px;
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.transactions table th:last-child,
+.transactions table td:last-child {
+    text-align: center;
+    width: 60px;
+}
+
+.btn-excluir {
+    background: none;
+    border: none;
+    color: var(--cor-vermelho-despesa);
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-excluir:hover {
+    color: var(--cor-vermelho-despesa);
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+.btn-excluir .material-icons-outlined {
+    font-size: inherit;
+    color: inherit;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo-modal-overlay);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--cor-modal-fundo);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--cor-dropdown-menu-sombra);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    color: var(--cor-modal-texto);
+}
+
+.modal-content h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: var(--cor-modal-titulo);
+}
+
+.modal-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: var(--cor-modal-texto);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-modal-confirm,
+.btn-modal-cancel {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-modal-confirm {
+    background-color: var(--cor-vermelho-despesa);
+    color: var(--cor-texto-principal);
+}
+
+.btn-modal-confirm:hover {
+    background-color: var(--cor-vermelho-despesa);
+    transform: translateY(-2px);
+}
+
+.btn-modal-cancel {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+}
+
+.btn-modal-cancel:hover {
+    background-color: var(--cor-borda-clara);
+    transform: translateY(-2px);
+}
+
+/* ======================================= */
+/* === ESTILOS PARA HISTÓRICO DE TRANSAÇÕES === */
+/* ======================================= */
+
+/* Botão para abrir o histórico */
+.btn-historico {
+    padding: 8px 16px;
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-historico:hover {
+    background-color: var(--cor-borda-clara);
+}
+
+/* Estilos para o Modal de Histórico */
+.modal-historico {
+    max-width: 800px; /* Maior que o modal de confirmação */
+    width: 95%;
+}
+
+.modal-historico .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-borda-clara);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-historico .modal-header h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--cor-modal-titulo);
+}
+
+.modal-historico .close-button {
+    font-size: 2rem;
+    color: var(--cor-botao-padrao-texto);
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+    border: none;
+    background: none;
+}
+.modal-historico .close-button:hover {
+    color: var(--cor-vermelho-despesa);
+}
+
+.modal-historico .modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Tabela dentro do modal */
+.modal-historico table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modal-historico th, .modal-historico td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--cor-borda-clara);
+    text-align: left;
+}
+
+.modal-historico th {
+    background-color: var(--cor-botao-padrao-fundo);
+    position: sticky;
+    top: 0;
+}
+
+/* Botões de ação no histórico */
+.modal-historico .acoes-transacao {
+    text-align: center;
+    width: 100px;
+}
+
+.btn-restaurar, .btn-excluir-perm {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 4px;
+    margin: 0 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-restaurar {
+    color: var(--cor-verde-receita);
+}
+.btn-restaurar:hover {
+    background-color: rgba(56, 142, 60, 0.1);
+}
+.btn-restaurar .material-icons-outlined {
+    font-size: inherit;
+    color: inherit;
+}
+
+.btn-excluir-perm {
+    color: var(--cor-vermelho-despesa);
+}
+.btn-excluir-perm:hover {
+    background-color: rgba(211, 47, 47, 0.1);
+}
+.btn-excluir-perm .material-icons-outlined {
+    font-size: inherit;
+    color: inherit;
+}

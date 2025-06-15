@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Dados</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-dados.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" onclick="location.href='index.html';"><span class="material-icons-outlined">work</span> Projetos</li>
+                <li class="sidebar-list-item" onclick="location.href='tarefas.html';"><span class="material-icons-outlined">task</span> Tarefas e Fluxo</li>
+                <li class="sidebar-list-item" onclick="location.href='equipes.html';"><span class="material-icons-outlined">group</span> Equipes e RH</li>
+                <li class="sidebar-list-item" onclick="location.href='financa.html';"><span class="material-icons-outlined">account_balance_wallet</span> Finanças</li>
+                <li class="sidebar-list-item" onclick="location.href='comunicar.html';"><span class="material-icons-outlined">message</span> Comunicação</li>
+                <li class="sidebar-list-item active" onclick="location.href='dados.html';"><span class="material-icons-outlined">storage</span> Dados</li>
+                <li class="sidebar-list-item" onclick="location.href='inovar.html';"><span class="material-icons-outlined">lightbulb</span> Inovação</li>
+                <li class="sidebar-list-item" onclick="location.href='riscos.html';"><span class="material-icons-outlined">warning</span> Riscos</li>
+                <li class="sidebar-list-item" onclick="location.href='performance.html';"><span class="material-icons-outlined">assessment</span> Performance</li>
+                <li class="sidebar-list-item" onclick="location.href='integracao.html';"><span class="material-icons-outlined">link</span> Integração</li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>DASHBOARD GERAL</h2>
+            </div>
+
+            <div class="dados-dashboard">
+
+                <div id="indicadoresGerais" class="indicadores-gerais">
+                    </div>
+                <div class="dashboard-layout">
+                    <div class="coluna-esquerda">
+                        
+                        <div class="card-dashboard">
+                            <h3><span class="material-icons-outlined">bar_chart</span>Projetos por Equipe</h3>
+                            <div class="grafico-container">
+                                <canvas id="graficoProjetosEquipe"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-dashboard">
+                            <h3><span class="material-icons-outlined">warning</span>Alertas e Riscos Ativos</h3>
+                            <ul id="listaAlertas" class="lista-alertas">
+                                </ul>
+                        </div>
+                        </div>
+
+                    <div class="coluna-direita">
+
+                        <div class="card-dashboard">
+                            <h3><span class="material-icons-outlined">history</span>Últimas Atualizações do Sistema</h3>
+                            <ul id="listaAtualizacoes" class="log-eventos">
+                                </ul>
+                        </div>
+                        </div>
+                </div>
+
+            </div>
+            </main>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script src="js/dados.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+
+</html>

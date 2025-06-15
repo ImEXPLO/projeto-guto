@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicação</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-comunicacao.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos"><span class="material-icons-outlined">work</span> Projetos</li>
+                <li class="sidebar-list-item" id="lista-tarefas"><span class="material-icons-outlined">task</span> Tarefas e Fluxo</li>
+                <li class="sidebar-list-item" id="lista-equipes"><span class="material-icons-outlined">group</span> Equipes e RH</li>
+                <li class="sidebar-list-item" id="lista-financa"><span class="material-icons-outlined">account_balance_wallet</span> Finanças</li>
+                <li class="sidebar-list-item active" id="lista-mensagem"><span class="material-icons-outlined">message</span> Comunicação</li>
+                <li class="sidebar-list-item" id="lista-dados"><span class="material-icons-outlined">storage</span> Dados</li>
+                <li class="sidebar-list-item" id="lista-inovar"><span class="material-icons-outlined">lightbulb</span> Inovação</li>
+                <li class="sidebar-list-item" id="lista-riscos"><span class="material-icons-outlined">warning</span> Riscos</li>
+                <li class="sidebar-list-item" id="lista-performance"><span class="material-icons-outlined">assessment</span> Performance</li>
+                <li class="sidebar-list-item" id="lista-integrar"><span class="material-icons-outlined">link</span> Integração</li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>COMUNICAÇÃO</h2>
+            </div>
+
+            <div class="comunicacao-dashboard">
+                <div class="comunicacao-header">
+                    <h2>Painel de Comunicação</h2>
+                    <button id="btnCanalConfidencial" class="btn-confidencial">
+                        <span class="material-icons-outlined">security</span> Canal Confidencial
+                    </button>
+                </div>
+
+                <div class="comunicacao-layout">
+                    <div class="chat-section card">
+                        <h3><span class="material-icons-outlined">chat</span> Chat da Equipe</h3>
+                        <div id="chatBox" class="chat-box">
+                            </div>
+                        <div class="chat-input-area">
+                            <select id="chatSetor">
+                                <option value="Geral">Geral</option>
+                                <option value="RH">RH</option>
+                                <option value="Saúde">Saúde</option>
+                                <option value="Obras">Obras</option>
+                                <option value="Jurídico">Jurídico</option>
+                            </select>
+                            <input type="text" id="chatInput" class="chat-input" placeholder="Digite sua mensagem...">
+                            <button id="btnEnviarMensagem" class="chat-send">Enviar</button>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="card card-avisos">
+                            <h4><span class="material-icons-outlined">campaign</span> Avisos Gerais</h4>
+                            <ul id="listaAvisos">
+                                </ul>
+                        </div>
+                        <div class="card card-inbox">
+                            <h4><span class="material-icons-outlined">inbox</span> Caixa de Entrada</h4>
+                            <ul id="listaInbox">
+                                </ul>
+                        </div>
+                        </div>
+                    </div>
+
+                <div class="card status-section">
+                    <h4><span class="material-icons-outlined">monitoring</span> Status de Comunicação</h4>
+                    <div class="status-grid">
+                        <div id="statusCanais" class="status-canais">
+                            </div>
+                        <div class="status-chart">
+                            <canvas id="mensagensChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div id="modalConfidencial" class="modal-overlay" style="display: none;">
+                <div class="modal-content">
+                    <span id="fecharModal" class="close-button">&times;</span>
+                    <h4>Canal de Comunicação Confidencial</h4>
+                    <p>Sua mensagem será enviada anonimamente para análise.</p>
+                    <form id="formConfidencial">
+                        <textarea id="mensagemConfidencial" rows="5" placeholder="Descreva a situação com detalhes..." required></textarea>
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+            </main>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script src="js/comunicar.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+
+</html>

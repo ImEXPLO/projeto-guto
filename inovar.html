@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovação na Gestão Pública</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- NOVO ARQUIVO DE ESTILO PARA A PÁGINA DE INOVAÇÃO -->
+    <link rel="stylesheet" href="css/styles-inovacao.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Header e Sidebar (Estrutura Intacta) -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" onclick="location.href='index.html';"><span class="material-icons-outlined">work</span> Projetos</li>
+                <li class="sidebar-list-item" onclick="location.href='tarefas.html';"><span class="material-icons-outlined">task</span> Tarefas e Fluxo</li>
+                <li class="sidebar-list-item" onclick="location.href='equipes.html';"><span class="material-icons-outlined">group</span> Equipes e RH</li>
+                <li class="sidebar-list-item" onclick="location.href='financas.html';"><span class="material-icons-outlined">account_balance_wallet</span> Finanças</li>
+                <li class="sidebar-list-item" onclick="location.href='comunicar.html';"><span class="material-icons-outlined">message</span> Comunicação</li>
+                <li class="sidebar-list-item" onclick="location.href='dados.html';"><span class="material-icons-outlined">storage</span> Dados</li>
+                <li class="sidebar-list-item active" onclick="location.href='inovar.html';"><span class="material-icons-outlined">lightbulb</span> Inovação</li>
+                <li class="sidebar-list-item" onclick="location.href='riscos.html';"><span class="material-icons-outlined">warning</span> Riscos</li>
+                <li class="sidebar-list-item" onclick="location.href='performance.html';"><span class="material-icons-outlined">assessment</span> Performance</li>
+                <li class="sidebar-list-item" onclick="location.href='integracao.html';"><span class="material-icons-outlined">link</span> Integração</li>
+            </ul>
+        </aside>
+
+        <!-- Conteúdo Principal da Página de Inovação -->
+        <main class="main-container">
+
+            <!-- INÍCIO: Introdução (Hero Block) -->
+            <div class="inovacao-hero">
+                <div class="hero-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                </div>
+                <div class="hero-text">
+                    <h1>INOVAÇÃO NA GESTÃO PÚBLICA</h1>
+                    <p>Transformando ideias em soluções reais para a cidade.</p>
+                </div>
+            </div>
+            <!-- FIM: Introdução (Hero Block) -->
+
+            <div class="inovacao-grid">
+                <!-- Coluna da Esquerda -->
+                <div class="inovacao-coluna">
+                    <!-- INÍCIO: Hackathons Internos -->
+                    <div class="card-inovacao">
+                        <h3><span class="material-icons-outlined">groups</span> Hackathons Internos</h3>
+                        <p>Eventos internos focados em soluções reais para desafios públicos, estimulando a colaboração e a criatividade entre as equipes.</p>
+                        <h4>Destaques do Último Evento:</h4>
+                        <ul>
+                            <li><span class="tag-tec">App</span> App de Coleta Seletiva Inteligente</li>
+                            <li><span class="tag-tec">IA</span> Assistente virtual para triagem na Saúde</li>
+                            <li><span class="tag-tec">Dados</span> Painel de visualização de dados do transporte</li>
+                        </ul>
+                    </div>
+                    <!-- FIM: Hackathons Internos -->
+                    
+                    <!-- INÍCIO: Laboratório de Inovação -->
+                    <div class="card-inovacao">
+                        <h3><span class="material-icons-outlined">science</span> Laboratório de Inovação</h3>
+                        <p>Espaço dedicado para o teste de novas ideias com protótipos rápidos e validação com servidores e cidadãos.</p>
+                        <h4>Atividades em Andamento:</h4>
+                        <ul>
+                            <li>Teste de usabilidade do novo portal da prefeitura.</li>
+                            <li>Simulação de atendimento com chatbot para IPTU.</li>
+                            <li>Validação de nova política de gestão de resíduos.</li>
+                        </ul>
+                    </div>
+                    <!-- FIM: Laboratório de Inovação -->
+                </div>
+
+                <!-- Coluna da Direita -->
+                <div class="inovacao-coluna">
+                    <!-- INÍCIO: Calendário -->
+                    <div class="card-inovacao">
+                        <h3><span class="material-icons-outlined">calendar_today</span> Calendário de Lançamentos</h3>
+                        <div id="calendario-widget">
+                            <!-- O calendário será gerado pelo JavaScript aqui -->
+                        </div>
+                    </div>
+                    <!-- FIM: Calendário -->
+
+                    <!-- INÍCIO: Enviar Ideias -->
+                    <div class="card-inovacao">
+                        <h3><span class="material-icons-outlined">emoji_objects</span> Envie sua Ideia</h3>
+                        <p>Tem uma sugestão para melhorar um processo ou serviço? Compartilhe conosco!</p>
+                        <form id="form-ideia">
+                            <div class="form-group">
+                                <label for="nome-servidor">Seu Nome</label>
+                                <input type="text" id="nome-servidor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="setor-servidor">Seu Cargo/Setor</label>
+                                <input type="text" id="setor-servidor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao-ideia">Sua Ideia</label>
+                                <textarea id="descricao-ideia" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-enviar-ideia">Enviar Ideia</button>
+                        </form>
+                    </div>
+                    <!-- FIM: Enviar Ideias -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- NOVO SCRIPT PARA A PÁGINA DE INOVAÇÃO -->
+    <script src="js/scripts.js"></script>
+    <script src="js/inovar.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+
+</html>

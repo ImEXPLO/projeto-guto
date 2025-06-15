@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrações</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-integrar.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()"><span class="material-icons-outlined">menu</span></div>
+            <div class="header-left"><span class="material-icons-outlined">search</span></div>
+            <div class="header-right"><span class="material-icons-outlined">notifications</span><span class="material-icons-outlined">email</span><span class="material-icons-outlined">account_circle</span></div>
+        </header>
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="integracao-dashboard">
+                <div class="integracao-header">
+                    <div class="main-title">
+                        <h2>INTEGRAÇÕES</h2>
+                    </div>
+                    <button class="btn-add-integration" id="btnAbrirModalAdd">+ Nova Integração</button>
+                </div>
+
+                <div class="integrations-grid" id="integrations-grid">
+                    <div class="integration-card disconnected" data-integration-id="google-drive">
+                        <div class="card-header"><img src="img/integrar/googledrive.png" alt="Google Drive"><h3>Google Drive</h3></div>
+                        <p class="card-description">Sincronize arquivos e documentos diretamente do seu Drive.</p>
+                        <div class="card-footer">
+                            <div class="status-badge"><span>Não Conectado</span></div>
+                            <div class="card-actions"><button class="btn-action btn-connect" data-action="connect">Conectar</button></div>
+                        </div>
+                    </div>
+                    <div class="integration-card connected" data-integration-id="zoom">
+                        <div class="card-header"><img src="img/integrar/zoom.png" alt="Zoom"><h3>Zoom</h3></div>
+                        <p class="card-description">Agende e gerencie reuniões do Zoom a partir do sistema.</p>
+                        <div class="card-footer">
+                            <div class="status-badge"><span>Conectado</span></div>
+                            <div class="card-actions"><button class="btn-action btn-configure" data-action="configure">Configurar</button><button class="btn-action btn-disconnect" data-action="disconnect">Desconectar</button></div>
+                        </div>
+                    </div>
+                    <div class="integration-card disconnected" data-integration-id="msteams">
+                        <div class="card-header"><img src="img/integrar/teams.png" alt="Microsoft Teams"><h3>Microsoft Teams</h3></div>
+                        <p class="card-description">Receba notificações e interaja com suas equipes no Teams.</p>
+                        <div class="card-footer">
+                            <div class="status-badge"><span>Não Conectado</span></div>
+                            <div class="card-actions"><button class="btn-action btn-connect" data-action="connect">Conectar</button></div>
+                        </div>
+                    </div>
+                    <div class="integration-card disconnected" data-integration-id="whatsapp">
+                        <div class="card-header"><img src="img/integrar/whatsapp.png" alt="WhatsApp Business"><h3>WhatsApp Business</h3></div>
+                        <p class="card-description">Envie notificações e alertas para equipes e cidadãos.</p>
+                        <div class="card-footer">
+                            <div class="status-badge"><span>Não Conectado</span></div>
+                            <div class="card-actions"><button class="btn-action btn-connect" data-action="connect">Conectar</button></div>
+                        </div>
+                    </div>
+                    <div class="integration-card connected" data-integration-id="github">
+                        <div class="card-header"><img src="img/integrar/github.png" alt="GitHub"><h3>GitHub</h3></div>
+                        <p class="card-description">Conecte repositórios para gestão de projetos de TI.</p>
+                        <div class="card-footer">
+                            <div class="status-badge"><span>Conectado</span></div>
+                            <div class="card-actions"><button class="btn-action btn-configure" data-action="configure">Configurar</button><button class="btn-action btn-disconnect" data-action="disconnect">Desconectar</button></div>
+                        </div>
+                    </div>
+                    <div class="integration-card connected" data-integration-id="govbr">
+                        <div class="card-header"><img src="img/integrar/gov.png" alt="Gov.br"><h3>Gov.br</h3></div>
+                        <p class="card-description">Integração para autenticação e serviços federais.</p>
+                        <div class="card-footer">
+                            <div class="status-badge"><span>Conectado</span></div>
+                            <div class="card-actions"><button class="btn-action btn-configure" data-action="configure">Configurar</button><button class="btn-action btn-disconnect" data-action="disconnect">Desconectar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalNovaIntegracao" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h4><span class="material-icons-outlined">add_circle_outline</span> Adicionar Nova Integração</h4>
+            <div class="suggestion-list" id="suggestion-list">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/integrar.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+</html>

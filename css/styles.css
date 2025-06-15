@@ -1,0 +1,828 @@
+:root {
+    /* Cores do Modo Claro */
+    --cor-fundo-principal: #2C6E49;
+    /* Verde escuro do body e sidebar */
+    --cor-fundo-conteudo: #28b866;
+    /* Verde claro do main-container */
+    --cor-texto-principal: #ffffff;
+    /* Texto branco do header e sidebar */
+    --cor-texto-claro: #333;
+    /* Texto escuro do conteúdo (h1, h3, labels, tabelas, etc.) */
+    --cor-card-fundo: #fff;
+    /* Fundo dos cards, formulário, charts, dropdowns, modal */
+    --cor-card-texto: #333;
+    /* Texto dentro dos cards, formulário, tabelas */
+    --cor-card-sombra: rgba(0, 0, 0, 0.1);
+    /* Sombra suave para cards e formulário */
+    --cor-borda-clara: #ccc;
+    /* Bordas e separadores claros (inputs, tabela, profile-header) */
+    --cor-verde-receita: #2e7d32;
+    /* Cor de receita */
+    --cor-vermelho-despesa: #d32f2f;
+    /* Cor de despesa e botão de confirmar exclusão */
+    --cor-azul-concluido: #2196F3;
+     /* Cor de concluido o projeto*/
+    --cor-sombra-header: rgba(0, 0, 0, 0.35);
+    /* Sombra do header */
+    --cor-fundo-modal-overlay: rgba(0, 0, 0, 0.5);
+    /* Fundo escuro semi-transparente do modal */
+    --cor-modal-fundo: #fff;
+    /* Fundo do balão do modal */
+    --cor-modal-titulo: #28b866;
+    /* Cor do título de modais e dropdowns */
+    --cor-modal-texto: #333;
+    /* Cor do texto dentro de modais */
+    --cor-dropdown-menu-fundo: #fff;
+    /* Fundo dos dropdowns do header */
+    --cor-dropdown-menu-texto: #333;
+    /* Texto dentro dos dropdowns */
+    --cor-dropdown-menu-sombra: rgba(0, 0, 0, 0.2);
+    /* Sombra dos dropdowns */
+    --cor-sidebar-item-hover: rgba(255, 255, 255, 0.2);
+    /* Fundo de item da sidebar no hover */
+    --cor-botao-padrao-fundo: #f0f0f0;
+    /* Fundo de botões genéricos (cancelar modal, dropdown actions) */
+    --cor-botao-padrao-texto: #555;
+    /* Cor do texto de botões genéricos */
+    --cor-slider-trilha-claro: var(--cor-borda-clara);
+    /* Cor da trilha quando não selecionado */
+    --cor-slider-trilha-escuro: var(--cor-modal-titulo);
+    /* Cor da trilha quando selecionado */
+    --cor-slider-circulo: var(--cor-card-fundo);
+    /* Cor do círculo do slider */
+}
+
+.dark-mode {
+    /* Cores do Modo Escuro */
+    --cor-fundo-principal: #1a1a1a;
+    /* Fundo bem escuro */
+    --cor-fundo-conteudo: #2c2c2c;
+    /* Fundo mais escuro para o main-container */
+    --cor-texto-principal: #f0f0f0;
+    /* Texto claro (header, sidebar) */
+    --cor-texto-claro: #e0e0e0;
+    /* Texto mais claro para o conteúdo (formulários, tabelas, cards) */
+    --cor-card-fundo: #3a3a3a;
+    /* Fundo de cards, formulário, charts, dropdowns, modal mais escuro */
+    --cor-card-texto: #f0f0f0;
+    /* Texto de cards, formulário, tabelas claro */
+    --cor-card-sombra: rgba(0, 0, 0, 0.5);
+    /* Sombra mais escura */
+    --cor-borda-clara: #444;
+    /* Bordas e separadores mais escuros */
+    --cor-verde-receita: #4CAF50;
+    /* Verde de receita (pode ser ajustado) */
+    --cor-vermelho-despesa: #FF5252;
+    /* Vermelho de despesa (pode ser ajustado) */
+    --cor-sombra-header: rgba(0, 0, 0, 0.6);
+    /* Sombra mais intensa */
+    --cor-fundo-modal-overlay: rgba(0, 0, 0, 0.7);
+    /* Fundo do modal mais escuro */
+    --cor-modal-fundo: #3a3a3a;
+    --cor-modal-titulo: #4CAF50;
+    --cor-modal-texto: #f0f0f0;
+    --cor-dropdown-menu-fundo: #3a3a3a;
+    --cor-dropdown-menu-texto: #f0f0f0;
+    --cor-dropdown-menu-sombra: rgba(0, 0, 0, 0.5);
+    --cor-sidebar-item-hover: rgba(255, 255, 255, 0.1);
+    --cor-botao-padrao-fundo: #555;
+    --cor-botao-padrao-texto: #f0f0f0;
+    --cor-slider-trilha-claro: var(--cor-borda-clara);
+    /* Cor da trilha quando não selecionado (modo escuro) */
+    --cor-slider-trilha-escuro: var(--cor-modal-titulo);
+    /* Cor da trilha quando selecionado (modo escuro) */
+    --cor-slider-circulo: var(--cor-card-fundo);
+    /* Cor do círculo do slider (modo escuro) */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+    font-family: "Inter", sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.material-icons-outlined {
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 35px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+        "sidebar header header header"
+        "sidebar main main main";
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 6px 7px -3px var(--cor-sombra-header);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 0;
+}
+
+.header-right .material-icons-outlined {
+    font-size: 24px;
+    color: var(--cor-texto-principal);
+    line-height: 1;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button .material-icons-outlined {
+    font-size: 24px;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilização do Menu (Dropdowns de Notificações, Email, Perfil) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    border-radius: 8px;
+    overflow: visible;
+    padding: 10px 0;
+    background-color: var(--cor-dropdown-menu-fundo);
+    color: var(--cor-dropdown-menu-texto);
+    padding: 15px;
+    min-width: 250px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px var(--cor-dropdown-menu-sombra);
+    border-radius: 8px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--cor-dropdown-menu-fundo);
+    transform: rotate(45deg);
+    z-index: -1;
+    right: 3px;
+}
+
+.dropdown-item {
+    color: var(--cor-texto-principal);
+    background: none;
+    border: none;
+    width: 100%;
+    right: 0;
+    text-align: left;
+    padding: 10px 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--cor-botao-padrao-fundo);
+}
+
+/* Ícones */
+.material-icons-outlined {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilização do botão de logout no dropdown */
+.dropdown-item.logout {
+    color: var(--cor-vermelho-despesa);
+}
+
+.dropdown-item.logout:hover {
+    background: rgba(255, 82, 82, 0.1);
+}
+
+.dropdown-menu h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--cor-modal-titulo);
+    text-align: center;
+}
+
+.dropdown-menu .dropdown-content {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+.dropdown-menu .dropdown-content p {
+    margin: 8px 0;
+    font-size: 0.9em;
+    color: var(--cor-dropdown-menu-texto);
+}
+
+.dropdown-menu .dropdown-content p span {
+    color: var(--cor-verde-receita);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.dropdown-menu .dropdown-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid var(--cor-borda-clara);
+}
+
+.dropdown-menu .dropdown-actions button {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu .dropdown-actions button:hover {
+    background-color: var(--cor-borda-clara);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--cor-borda-clara);
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid var(--cor-modal-titulo);
+}
+
+.profile-option {
+    background: none !important;
+    border: none !important;
+    color: var(--cor-dropdown-menu-texto) !important;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-option .material-icons-outlined {
+    font-size: 20px;
+    color: inherit;
+}
+
+.profile-option:hover {
+    background-color: var(--cor-botao-padrao-fundo) !important;
+}
+
+.profile-option.logout {
+    color: var(--cor-vermelho-despesa) !important;
+}
+
+.profile-option.logout:hover {
+    background-color: rgba(255, 82, 82, 0.1) !important;
+}
+
+#button-perfil,
+#button-settings,
+#button-ajuda,
+#button-sair {
+    display: none;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    height: 100%;
+    background-color: var(--cor-fundo-principal);
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.sidebar-title {
+    padding: 15px 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-title>span {
+    display: none;
+}
+
+.sidebar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.sidebar-logo {
+    width: 150px;
+    height: auto;
+    margin: 10px 0 10px 15px;
+}
+
+.sidebar-brand span.material-icons-outlined {
+    display: none;
+}
+
+.sidebar-list {
+    padding: 0;
+    margin-top: 15px;
+    list-style-type: none;
+}
+
+.sidebar-list-item {
+    padding: 20px 20px 20px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--cor-texto-principal);
+}
+
+.sidebar-list-item:hover {
+    background-color: var(--cor-sidebar-item-hover);
+    cursor: pointer;
+}
+
+.sub-list {
+    list-style: none;
+    padding-left: 30px;
+    display: none;
+}
+
+.sub-item {
+    padding: 5px 10px;
+    color: var(--cor-texto-principal);
+    font-size: 14px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.sub-item:hover {
+    text-decoration: underline;
+}
+
+.sidebar-list-item.active .sub-list {
+    display: block;
+}
+
+.sidebar-responsive {
+    display: inline !important;
+    position: absolute;
+    z-index: 12 !important;
+}
+
+.main-container {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px 20px;
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-fundo-conteudo);
+    /* min-height: calc(100vh - 50px); */
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.main-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* COMEÇO DO COMUNICAÇÃO (AGORA FORA DE QUALQUER ANINHAMENTO) */
+.comunicacao-dashboard {
+    padding: 30px;
+    background-color: var(--cor-fundo-conteudo);
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 30px;
+    color: var(--cor-texto-claro);
+}
+
+.comunicacao-dashboard h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--cor-card-texto);
+}
+
+.comunicacao-layout {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.chat-section {
+    flex: 1;
+    min-width: 300px;
+    background: var(--cor-card-fundo);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    color: var(--cor-card-texto);
+}
+
+.chat-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--cor-card-texto);
+}
+
+.chat-box {
+    background-color: var(--cor-botao-padrao-fundo);
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: var(--cor-card-texto);
+}
+
+.chat-message {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--cor-card-texto);
+}
+
+.chat-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda-clara);
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+}
+
+.info-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comunicacao-dashboard .card {
+    background: var(--cor-card-fundo);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    color: var(--cor-card-texto);
+}
+
+.comunicacao-dashboard .card h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--cor-card-texto);
+}
+
+.comunicacao-dashboard .card ul {
+    list-style: none;
+    padding: 0;
+    color: var(--cor-card-texto);
+}
+
+.comunicacao-dashboard .card li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--cor-card-texto);
+}
+
+.comunicacao-dashboard .card.status p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: var(--cor-card-texto);
+}
+
+.chat-send {
+    margin-top: 8px;
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.chat-send:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+/* FIM DO COMUNICAÇÃO */
+
+/* COMEÇO DO DADOS (AGORA FORA DE QUALQUER ANINHAMENTO) */
+.dashboard {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: var(--cor-card-fundo);
+    box-shadow: 0 0 10px var(--cor-card-sombra);
+    margin-bottom: 30px;
+    color: var(--cor-card-texto);
+}
+
+.dashboard header h1 {
+    text-align: center;
+    color: var(--cor-card-texto);
+}
+
+.charts { /* Este charts é para dados, não confunda com o de performance */
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.dashboard .chart {
+    text-align: center;
+    background: var(--cor-card-fundo);
+    padding: 15px;
+    box-shadow: 0 0 5px var(--cor-card-sombra);
+}
+
+.dashboard .chart img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.info {
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+    background: var(--cor-modal-titulo);
+    padding: 10px;
+    color: var(--cor-texto-principal);
+}
+
+.tasks {
+    margin-top: 20px;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.dashboard table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--cor-card-fundo);
+}
+
+.dashboard th,
+.dashboard td {
+    border: 1px solid var(--cor-borda-clara);
+    padding: 8px;
+    text-align: left;
+    color: var(--cor-card-texto);
+}
+
+.dashboard th {
+    background: var(--cor-botao-padrao-fundo);
+    color: var(--cor-card-texto);
+}
+
+/* FIM DO DADOS */
+
+/* Estilos para o Toggle Switch (Modo Escuro) */
+.toggle-switch {
+    background: none !important;
+    border: none !important;
+    color: var(--cor-dropdown-menu-texto) !important;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-switch:hover {
+    background-color: var(--cor-botao-padrao-fundo) !important;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-text {
+    font-size: 0.95em;
+    color: inherit;
+    margin-right: 0;
+}
+
+.toggle-switch .material-icons-outlined {
+    font-size: 20px;
+    color: inherit;
+    transition: color 0.4s ease;
+    flex-shrink: 0;
+}
+
+.dark-mode .toggle-switch .light-icon,
+.dark-mode .toggle-switch .dark-icon {
+    color: var(--cor-dropdown-menu-texto);
+}
+
+/* Dark Mode Overrides for Tarefas */
+.dark-mode .search-and-add-container {
+    background-color: var(--cor-card-fundo);
+}
+
+.dark-mode .search-input {
+    border-color: var(--cor-borda-clara);
+    color: var(--cor-card-texto);
+    background-color: var(--cor-card-fundo);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .search-input::placeholder {
+    color: var(--cor-borda-clara);
+}
+
+.dark-mode .search-input:focus {
+    border-color: var(--cor-modal-titulo);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.25);
+    /* Usando um verde de modal-titulo */
+}
+
+.dark-mode .add-task-btn {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .add-task-btn:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.dark-mode .add-task-btn .material-icons-outlined {
+    color: var(--cor-texto-principal);
+}
+
+.dark-mode .delete-btn {
+    background-color: var(--cor-vermelho-despesa);
+    color: var(--cor-texto-principal);
+}
+
+.dark-mode .delete-btn:hover {
+    background-color: #b00020;
+    /* Vermelho um pouco mais escuro para hover no dark mode */
+}
+
+/* Modal Styling for Dark Mode */
+.dark-mode .modal-content {
+    background-color: var(--cor-modal-fundo);
+    box-shadow: 0 5px 15px var(--cor-dropdown-menu-sombra);
+}
+
+.dark-mode .close-button {
+    color: var(--cor-texto-principal);
+}
+
+.dark-mode .close-button:hover,
+.dark-mode .close-button:focus {
+    color: var(--cor-modal-titulo);
+}
+
+.dark-mode .modal-content h2 {
+    color: var(--cor-modal-titulo);
+}
+
+.dark-mode .form-group label {
+    color: var(--cor-modal-texto);
+}
+
+.dark-mode .form-group input[type="text"],
+.dark-mode .form-group input[type="date"],
+.dark-mode .form-group select {
+    border: 1px solid var(--cor-borda-clara);
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+}
+
+.dark-mode .submit-btn {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+}
+
+.dark-mode .submit-btn:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+/* Priority Tags for Dark Mode */
+.dark-mode .priority-high {
+    background-color: #6b1a20;
+    /* Darker red */
+    color: #f8d7da;
+    /* Lighter text */
+}
+
+.dark-mode .priority-medium {
+    background-color: #7a6000;
+    /* Darker yellow/orange */
+    color: #fff3cd;
+    /* Lighter text */
+}
+
+.dark-mode .priority-low {
+    background-color: #0e3016;
+    /* Darker green */
+    color: #d4edda;
+    /* Lighter text */
+}
+
+/* Completed Task for Dark Mode */
+.dark-mode .task-completed {
+    color: #999;
+    /* Adjust color for dark mode */
+}
+
+/* Table Styling for Dark Mode */
+.dark-mode .task-table {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .task-table th,
+.dark-mode .task-table td {
+    border: 1px solid var(--cor-borda-clara);
+    color: var(--cor-card-texto);
+}
+
+.dark-mode .task-table th {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-card-texto);
+}
+
+.dark-mode .task-table tbody tr:nth-child(even) {
+    background-color: #3f3f3f;
+    /* Slightly different background for even rows */
+}
+
+.dark-mode .task-table tbody tr:hover {
+    background-color: #4a4a4a;
+    /* Hover effect for rows */
+}
+
+/* Chart Card for Dark Mode */
+.dark-mode .main-cards .card {
+    background-color: var(--cor-card-fundo);
+    box-shadow: 0 4px 8px var(--cor-card-sombra);
+}
+
+.dark-mode .main-cards .card-inner h3 {
+    color: var(--cor-card-texto);
+}

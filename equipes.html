@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-equipes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img src="img/logoORG.png" alt="OrganiZATION Logo" class="sidebar-logo">
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="lista-projetos">
+                    <span class="material-icons-outlined">work</span> Projetos
+                </li>
+                <li class="sidebar-list-item" id="lista-tarefas">
+                    <span class="material-icons-outlined">task</span> Tarefas e Fluxo
+                </li>
+                <li class="sidebar-list-item active" id="lista-equipes">
+                    <span class="material-icons-outlined">group</span> Equipes e RH
+                </li>
+                <li class="sidebar-list-item" id="lista-financa">
+                    <span class="material-icons-outlined">account_balance_wallet</span> Finanças
+                </li>
+                <li class="sidebar-list-item" id="lista-mensagem">
+                    <span class="material-icons-outlined">message</span> Comunicação
+                </li>
+                <li class="sidebar-list-item" id="lista-dados">
+                    <span class="material-icons-outlined">storage</span> Dados
+                </li>
+                <li class="sidebar-list-item" id="lista-inovar">
+                    <span class="material-icons-outlined">lightbulb</span> Inovação
+                </li>
+                <li class="sidebar-list-item" id="lista-riscos">
+                    <span class="material-icons-outlined">warning</span> Riscos
+                </li>
+                <li class="sidebar-list-item" id="lista-performance">
+                    <span class="material-icons-outlined">assessment</span> Performance
+                </li>
+                <li class="sidebar-list-item" id="lista-integrar">
+                    <span class="material-icons-outlined">link</span> Integração
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <div class="main-title">
+                <h2>EQUIPES</h2>
+            </div>
+
+            <div class="equipes-container">
+                <div class="equipes-header">
+                    <input type="text" id="searchEquipe" placeholder="Buscar equipe por nome..." class="search-bar" />
+                    <button class="btn-ver-historico" id="btnVerHistorico">
+                        <span class="material-icons-outlined">history</span> Ver Histórico
+                    </button>
+                    <button class="btn-novo-projeto" id="btnCriarEquipe">
+                        <span class="material-icons-outlined">add</span> Criar Nova Equipe
+                    </button>
+                </div>
+
+                <div class="equipes-cards" id="equipesContainer">
+                    </div>
+                <div id="historicoContainer" class="hidden">
+                    <h3 class="historico-title">Histórico de Equipes Excluídas</h3>
+                    <div class="equipes-cards" id="historicoCards">
+                        </div>
+                </div>
+                </div>
+
+            <div class="modal-overlay" id="modalEquipe">
+                <div class="modal-content">
+                    <h4 id="modalEquipeTitle">Criar Nova Equipe</h4>
+                    <form id="formEquipe">
+                        <input type="hidden" id="equipeId">
+                        <div class="campo">
+                            <label for="equipeNome">Nome da Equipe:</label>
+                            <input type="text" id="equipeNome" required>
+                        </div>
+                        <div class="campo">
+                            <label for="equipeDescricao">Descrição:</label>
+                            <textarea id="equipeDescricao" rows="3"></textarea>
+                        </div>
+                        <div class="campo">
+                            <label for="equipeLider">Líder:</label>
+                            <input type="text" id="equipeLider">
+                        </div>
+                        <div class="campo">
+                            <label for="equipeMembros">Membros (separados por vírgula):</label>
+                            <input type="text" id="equipeMembros">
+                        </div>
+                        <button type="submit" class="btn-modal-confirm">Salvar Equipe</button>
+                        <button type="button" class="btn-modal-cancel" id="cancelarEquipeModal">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-overlay" id="modalDetalhesEquipe">
+                <div class="modal-content">
+                    <h4 id="detalhesEquipeNome"></h4>
+                    <p><strong>Descrição:</strong> <span id="detalhesEquipeDescricao"></span></p>
+                    <p><strong>Líder:</strong> <span id="detalhesEquipeLider"></span></p>
+                    <p><strong>Membros:</strong> <span id="detalhesEquipeMembros"></span></p>
+                    <p><strong>Projetos Ativos:</strong> <span id="detalhesEquipeProjetos"></span></p>
+                    <button type="button" class="btn-modal-cancel" id="fecharDetalhesEquipeModal">Fechar</button>
+                </div>
+            </div>
+
+            <div class="modal-overlay" id="modalConfirmacaoExclusao">
+                <div class="modal-content">
+                    <h4>Confirmar Exclusão</h4>
+                    <p>Tem certeza que deseja mover esta equipe para o histórico?</p>
+                    <div class="modal-buttons">
+                        <button class="btn-modal-confirm" id="confirmarExclusao">Excluir</button>
+                        <button class="btn-modal-cancel" id="cancelarExclusao">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script src="js/equipes.js"></script>
+    <script src="js/header-actions.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE EQUIPES
+   ========================================================================== */
+
+/* Container Principal */
+.equipes-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    color: var(--cor-texto-principal);
+}
+
+/* Cabeçalho com Busca e Botões */
+.equipes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.equipes-container .search-bar {
+    flex-grow: 1;
+    min-width: 250px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+    box-shadow: 0 2px 5px var(--cor-card-sombra);
+}
+
+/* Botão de Histórico */
+.btn-ver-historico {
+    background-color: #6c757d; /* Cinza */
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-historico:hover {
+    background-color: #5a6268;
+}
+
+.btn-ver-historico .material-icons-outlined {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
+
+/* Grid de Cards */
+.equipes-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--cor-card-fundo);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--cor-card-sombra);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--cor-card-texto);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 5px solid transparent; /* Base para o indicador de carga */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--cor-card-sombra);
+}
+
+/* Indicadores de Carga de Trabalho */
+.card.workload-low {
+    border-left-color: #28a745; /* Verde */
+}
+.card.workload-medium {
+    border-left-color: #ffc107; /* Amarelo */
+}
+.card.workload-high {
+    border-left-color: #dc3545; /* Vermelho */
+}
+
+.card img {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 10px auto;
+}
+
+.card h2 {
+    margin: 10px 0 5px;
+    font-size: 1.3rem;
+    color: var(--cor-modal-titulo);
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--cor-card-texto);
+    margin: 5px 0;
+}
+
+/* Ações do Card (Botões) */
+.equipe-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* <<< CORREÇÃO APLICADA AQUI */
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.equipe-actions .btn-detalhes,
+.equipe-actions .btn-editar,
+.equipe-actions .btn-restaurar {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.equipe-actions .btn-editar {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+}
+
+.equipe-actions .btn-restaurar {
+    background-color: #007bff; /* Azul */
+    width: 100%;
+}
+
+.equipe-actions .btn-detalhes:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.equipe-actions .btn-editar:hover {
+    background-color: var(--cor-borda-clara);
+}
+
+.equipe-actions .btn-restaurar:hover {
+    background-color: #0056b3;
+}
+
+.equipe-actions .btn-excluir {
+    background: none;
+    border: none;
+    color: var(--cor-vermelho-despesa);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equipe-actions .btn-excluir:hover {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: #b00020;
+}
+
+.equipe-actions .btn-excluir .material-icons-outlined {
+    font-size: inherit;
+    color: inherit;
+}
+
+
+/* Seção de Histórico */
+.hidden {
+    display: none !important;
+}
+
+#historicoContainer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--cor-borda-clara);
+}
+
+.historico-title {
+    text-align: center;
+    color: var(--cor-texto-principal);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Mensagem de "Nenhum item" */
+.empty-message {
+    color: white;
+    text-align: center;
+    grid-column: 1 / -1;
+    font-size: 1.1rem;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   ESTILOS DOS MODAIS (CRIAR/EDITAR/DETALHES/CONFIRMAR)
+   ========================================================================== */
+
+/* Overlay que cobre a tela inteira */
+.modal-overlay {
+    display: none; /* ESSENCIAL: Mantém o modal escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo-modal-overlay);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* Conteúdo do Modal (a "caixa" branca) */
+.modal-content {
+    background-color: var(--cor-modal-fundo);
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px var(--cor-dropdown-menu-sombra);
+    text-align: left;
+    max-width: 550px;
+    width: 100%;
+    color: var(--cor-modal-texto);
+}
+
+.modal-content h4 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    color: var(--cor-modal-titulo);
+    text-align: center;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--cor-modal-texto);
+}
+
+.modal-content p strong {
+    color: var(--cor-card-texto);
+}
+
+/* Estilos para o formulário dentro do modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content .campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--cor-card-texto);
+}
+
+.modal-content .campo input[type="text"],
+.modal-content .campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+}
+
+.modal-content .campo textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botões do Modal */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Estiliza os botões dentro do formulário e na confirmação */
+.btn-modal-confirm,
+.btn-modal-cancel {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-modal-confirm {
+    background-color: var(--cor-verde-receita); /* Verde para salvar */
+    color: var(--cor-texto-principal);
+}
+
+/* Específico para o botão de confirmação de exclusão */
+#modalConfirmacaoExclusao .btn-modal-confirm {
+     background-color: var(--cor-vermelho-despesa); /* Vermelho para excluir */
+}
+
+.btn-modal-cancel {
+    background-color: var(--cor-botao-padrao-fundo);
+    color: var(--cor-botao-padrao-texto);
+    border: 1px solid var(--cor-borda-clara);
+}
+
+.btn-modal-confirm:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+.btn-modal-cancel:hover {
+    background-color: var(--cor-borda-clara);
+    border-color: #999;
+}
+
+/* ==========================================================================
+   ESTILO PARA O TÍTULO PRINCIPAL DA PÁGINA
+   ========================================================================== */
+
+.main-title {
+    background-color: var(--cor-card-fundo);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 40px; /* Aumentei a margem para dar mais espaço */
+    text-align: center;
+    box-shadow: 0 4px 10px var(--cor-card-sombra);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--cor-modal-titulo);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   ESTILO PARA O BOTÃO DE CRIAR NOVA EQUIPE
+   ========================================================================== */
+
+.btn-novo-projeto {
+    background-color: var(--cor-modal-titulo);
+    color: var(--cor-texto-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-novo-projeto:hover {
+    background-color: var(--cor-verde-receita);
+}
+
+.btn-novo-projeto .material-icons-outlined {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
